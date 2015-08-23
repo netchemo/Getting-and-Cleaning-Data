@@ -22,6 +22,8 @@
 # X_train.txt
 # y_test.txt
 # y_train.txt
+# features.txt
+# activity_labels.txt
 
 # Load Required Library Packages
 
@@ -68,7 +70,7 @@ column_labels <- rbind(rbind(c(1, "subject"),features),c(563, "activity"))[,2]
 names(complete_merge) <- column_labels
 
 # Basic cleaning to match only "mean" and "std" from features, and 
-# retain teh "subject" and "activity" column headers.
+# retain the "subject" and "activity" column headers.
 features_value <- grepl("mean|std|subject|activity", names(complete_merge))
 
 # Create a new data table with the desired columns.
