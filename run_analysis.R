@@ -62,7 +62,8 @@ complete_merge <- rbind(train_merge, test_merge)
 # consist of a mean or standard deviation for the measurement. 
 # It also retains, the “subject” and “activity” columns.
 
-# Create a listing of raw column labels
+# Create a listing (character vector) of raw column labels: subject gets listed
+# first, followed by the measurement names, and activity is listed last.
 column_labels <- rbind(rbind(c(1, "subject"),features),c(563, "activity"))[,2]
 
 # Change the names of the combined data set (complete_merge) to match the
@@ -70,7 +71,10 @@ column_labels <- rbind(rbind(c(1, "subject"),features),c(563, "activity"))[,2]
 names(complete_merge) <- column_labels
 
 # Basic cleaning to match only "mean" and "std" from features, and 
-# retain the "subject" and "activity" column headers.
+# retain the "subject" and "activity" column headers; creates a logical
+# vector indicating whether each column heading of complete_merge contained
+# the pattern of desired terms in column name; (TRUE if the four headings
+# exist; FALSE otherwise)
 features_value <- grepl("mean|std|subject|activity", names(complete_merge))
 
 # Create a new data table with the desired columns.
@@ -104,15 +108,17 @@ activity_merge <- mutate(extract_merge, activity =
 # columns. This will make it easier to read with the subjects listed 
 # first, followed by their activities, then the mean and std devs.
 
-activity_merge <- select(activity_merge, subject, activity, 3:81)
+# Places the subjects in the first column, the activities (was last; 81) 
+# in the second column, and the 2-80 columns shift right. 
+activity_merge <- select(activity_merge, subject, activity, 2:80)
 
 # At this point, the columns representing the mean and standard 
 # deviation measurements do not have descriptive variable names.  
 # The code below changes the column names using the names provided 
 # in features.txt.
 
-# Clean-up the label appearance from the features.txt file
-
+# Clean-up the label appearance from the features.txt file. gsub is used
+# to replace each occurrence of the pattern (first string) with second string.
 names(activity_merge) <- gsub("[()]", "", names(activity_merge))
 names(activity_merge) <- gsub("-std", " Std", names(activity_merge))
 names(activity_merge) <- gsub("-mean", " Mean", names(activity_merge))
@@ -130,7 +136,7 @@ names(activity_merge) <- gsub("Freq", " Frequency", names(activity_merge))
 by_subject_and_activity <- group_by(activity_merge, subject, activity)
 
 # Use dplyr function <summarise_each> to take the mean of each 
-# column (measurement variable) by subject, by group.
+# column (measurement variable) by subject, by activity.
 summarise_mean_output <- summarise_each(by_subject_and_activity, funs(mean))
 
 # Write the final tidy data file (summarise_mean_output) to 
