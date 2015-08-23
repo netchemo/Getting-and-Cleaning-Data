@@ -4,10 +4,10 @@
 
 The purpose of this project is to demonstrate the ability to collect, work with, and clean a data set. The goal is to prepare tidy data that can be used for later analysis. The project consisted of the following deliverables:
 
-1. A tidy data set called <tidyDataSet.txt>
-2. A link to my Github repository with my script for performing the analysis <https://github.com/netchemo/Getting-and-Cleaning-Data>
-3. A code book that describes the variables, the data, and any transformations or work performed to clean up the data called <CodeBook.md> 
-4. A <README.md> file included in the repo with my scripts; this document is the <README.md>
+1. A tidy data set called *tidyDataSet.txt*.
+2. A link to my Github repository with my script for performing the analysis https://github.com/netchemo/Getting-and-Cleaning-Data.
+3. A code book that describes the variables, the data, and any transformations or work performed to clean up the data called *CodeBook.md*. 
+4. A <README.md> file included in the repo with my scripts; this document is the *README.md* file.
 
 ## Project Description
 
