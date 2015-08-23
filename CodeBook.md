@@ -4,11 +4,11 @@ This code book describes the variables, the data, and any transformations or wor
 
 ## Overview
 
-### From the UCI Website: http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones 
+**From the UCI Website: http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones** 
 
 The original data for this project originated from University of California, Irvine (UCI) Machine Learning Repository, the Center for Machine Learning and Intelligent Systems.  The data was from the Human Activity Recognition database created from the recordings of 30 subjects performing activities of daily living while carrying a waist-mounted smartphone with embedded inertial sensors.
 
-### From the README.txt File Associated with the Data:
+**From the README.txt File Associated with the Data:**
 
 The experiments have been carried out with a group of 30 volunteers within an age bracket of 19-48 years. Each person performed six activities (WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING) wearing a smartphone (Samsung Galaxy S II) on the waist. Using its embedded accelerometer and gyroscope, we captured 3-axial linear acceleration and 3-axial angular velocity at a constant rate of 50Hz. The experiments have been video-recorded to label the data manually. The obtained dataset has been randomly partitioned into two sets, where 70% of the volunteers was selected for generating the training data and 30% the test data. 
 
@@ -20,14 +20,14 @@ The sensor signals (accelerometer and gyroscope) were pre-processed by applying 
 
 The original data available for this project consisted of 26 txt files.  In order to create the run_analysis.R and tidyDataSet.txt files, only 8 data files were used:
 
-1) subject_test.txt:  Each row identifies the subject who performed the activity for each window sample. 
-2) subject_train.txt:  Each row identifies the subject who performed the activity for each window sample.  
-3) X_test.txt:  Test set.
-4) X_train.txt:  Training set.
-5) y_test.txt:  Test labels.
-6) y_train.txt:  Training labels.
-7) features.txt:  List of all features.
-8) activity_labels.txt:  Links the class labels with their activity name.
+1. subject_test.txt:  Each row identifies the subject who performed the activity for each window sample. 
+2. subject_train.txt:  Each row identifies the subject who performed the activity for each window sample.  
+3. X_test.txt:  Test set.
+4. X_train.txt:  Training set.
+5. y_test.txt:  Test labels.
+6. y_train.txt:  Training labels.
+7. features.txt:  List of all features.
+8. activity_labels.txt:  Links the class labels with their activity name.
 
 The training and test sets (files 1-6 above) were merged to create one data set.  The features.txt and activity_labels.txt files were used to create column (measurement variable) names and activity labels (for the six activities), respectively.
 
@@ -49,9 +49,9 @@ The origingal columns representing the mean and standard deviation measurements 
 * "Mag" was changed to "Magnitude" to enhance readability
 * "Freq" was changed to "Frequency" to enhance readability
 
-Finally, ndependent a final tidy data set was geneated with the average of each measurement variable for eacy activity and each subject; measurement means (of mean and standard deviation) grouped by subject and activity.
+Finally, a final tidy data set was geneated with the average of each measurement variable for eacy subject and each activity; measurement means (of means and standard deviations) grouped by subject and activity.
 
-Seventy-eight (79) measurement variables were genereated.  
+**Seventy-nine (79) measurement variables (columns 3-81) representing means (of means and std devs) were genereated by subject and activity:**
 
 * tBody Acceleration Mean X
 * tBody Acceleration Mean Y
